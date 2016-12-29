@@ -173,11 +173,7 @@ class Parameters(object):
         return len(self._occurrences) > 0
 
     def interpolate(self):
-        while self.has_unresolved_refs():
-            # we could use a view here, but this is simple enough:
-            # _interpolate_inner removes references from the refs hash after
-            # processing them, so we cannot just iterate the dict
-            path, refvalue = self._occurrences.items().next()
+        for path, refvalue in self._occurrences.copy().items():
             self._interpolate_inner(path, refvalue)
 
     def _interpolate_inner(self, path, refvalue):
