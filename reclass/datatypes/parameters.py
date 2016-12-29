@@ -135,7 +135,7 @@ class Parameters(object):
             ret.update(new)
             return ret
 
-        for key, newvalue in new.iteritems():
+        for key, newvalue in new.items():
             ret[key] = self._merge_recurse(ret.get(key), newvalue,
                                            path.new_subpath(key))
         return ret
@@ -177,7 +177,7 @@ class Parameters(object):
             # we could use a view here, but this is simple enough:
             # _interpolate_inner removes references from the refs hash after
             # processing them, so we cannot just iterate the dict
-            path, refvalue = self._occurrences.iteritems().next()
+            path, refvalue = self._occurrences.items().next()
             self._interpolate_inner(path, refvalue)
 
     def _interpolate_inner(self, path, refvalue):
