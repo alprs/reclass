@@ -7,6 +7,7 @@
 # Released under the terms of the Artistic Licence 2.0
 #
 
+from __future__ import print_function
 import posix, sys
 import traceback
 
@@ -30,9 +31,9 @@ class ReclassException(Exception):
             return 'No error message provided.'
 
     def exit_with_message(self, out=sys.stderr):
-        print >>out, self.message
+        print(self.message, file=out)
         if self._traceback:
-            print >>out, self._traceback
+            print(self._traceback, file=out)
         sys.exit(self.rc)
 
 

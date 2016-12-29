@@ -11,6 +11,7 @@
 # Released under the terms of the Artistic Licence 2.0
 #
 
+from __future__ import print_function
 import os, sys, posix, optparse
 
 from reclass import get_storage, output
@@ -81,7 +82,7 @@ def cli():
 
             data = groups
 
-        print output(data, options.output, options.pretty_print)
+        print(output(data, options.output, options.pretty_print))
 
     except ReclassException as e:
         e.exit_with_message(sys.stderr)

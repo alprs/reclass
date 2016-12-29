@@ -6,6 +6,8 @@
 # Copyright © 2007–14 martin f. krafft <madduck@madduck.net>
 # Released under the terms of the Artistic Licence 2.0
 #
+
+from __future__ import print_function
 import os
 import sys
 from reclass.errors import NotFoundError
@@ -14,7 +16,7 @@ SKIPDIRS = ( 'CVS', 'SCCS' )
 FILE_EXTENSION = '.yml'
 
 def vvv(msg):
-    #print >>sys.stderr, msg
+    #print(msg, file=sys.stderr)
     pass
 
 class Directory(object):

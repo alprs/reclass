@@ -6,6 +6,8 @@
 # Copyright © 2007–14 martin f. krafft <madduck@madduck.net>
 # Released under the terms of the Artistic Licence 2.0
 #
+
+from __future__ import print_function
 import os, sys
 import fnmatch
 from reclass.storage import NodeStorageBase
@@ -18,7 +20,7 @@ FILE_EXTENSION = '.yml'
 STORAGE_NAME = 'yaml_fs'
 
 def vvv(msg):
-    #print >>sys.stderr, msg
+    #print(msg, sys.stderr)
     pass
 
 class ExternalNodeStorage(NodeStorageBase):

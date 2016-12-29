@@ -7,6 +7,7 @@
 # Released under the terms of the Artistic Licence 2.0
 #
 
+from __future__ import print_function
 import os, sys, posix
 
 from reclass import get_storage, output
@@ -111,7 +112,7 @@ def cli():
                        classes_uri=options.classes_uri,
                        class_mappings=class_mappings)
 
-        print output(data, options.output, options.pretty_print)
+        print(output(data, options.output, options.pretty_print))
 
     except ReclassException as e:
         e.exit_with_message(sys.stderr)

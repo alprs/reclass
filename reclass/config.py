@@ -183,7 +183,7 @@ def get_options(name, version, description,
 
 
 def vvv(msg):
-    #print >>sys.stderr, msg
+    #print(msg, file=sys.stderr)
     pass
 
 
