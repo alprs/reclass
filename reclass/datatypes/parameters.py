@@ -6,7 +6,8 @@
 # Copyright © 2007–14 martin f. krafft <madduck@madduck.net>
 # Released under the terms of the Artistic Licence 2.0
 #
-import types
+
+import types, six
 
 from reclass.defaults import PARAMETER_INTERPOLATION_DELIMITER
 from reclass.utils.dictpath import DictPath
@@ -77,7 +78,7 @@ class Parameters(object):
             # will be added again further on
             del self._occurrences[path]
 
-        if self.delimiter is None or not isinstance(new, (types.StringTypes,
+        if self.delimiter is None or not isinstance(new, (six.string_types,
                                                           RefValue)):
             # either there is no delimiter defined (and hence no references
             # are being used), or the new value is not a string (and hence

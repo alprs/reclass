@@ -9,6 +9,7 @@
 
 import types
 import os
+import six
 from reclass.errors import InvalidClassnameError
 
 INVALID_CHARACTERS_FOR_CLASSNAMES = ' ' + os.sep
@@ -51,7 +52,7 @@ class Classes(object):
             self.append_if_new(i)
 
     def _assert_is_string(self, item):
-        if not isinstance(item, types.StringTypes):
+        if not isinstance(item, six.string_types):
             raise TypeError('%s instances can only contain strings, '\
                             'not %s' % (self.__class__.__name__, type(item)))
 

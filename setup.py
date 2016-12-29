@@ -25,5 +25,5 @@ setup(
     url = URL,
     packages = find_packages(),
     entry_points = { 'console_scripts': console_scripts },
-    install_requires = ['pyyaml']
+    install_requires = ['pyyaml', 'six']
 )
