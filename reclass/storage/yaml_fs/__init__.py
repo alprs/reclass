@@ -10,10 +10,10 @@
 from __future__ import print_function
 import os, sys
 import fnmatch
-from reclass.storage import NodeStorageBase
-from yamlfile import YamlFile
-from directory import Directory
+from .directory import Directory
+from .yamlfile import YamlFile
 from reclass.datatypes import Entity
+from reclass.storage import NodeStorageBase
 import reclass.errors
 
 FILE_EXTENSION = '.yml'
