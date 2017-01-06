@@ -12,7 +12,7 @@
 #
 
 from __future__ import print_function
-import os, sys, posix, optparse
+import os, six, sys, posix, optparse
 
 from reclass import get_storage, output
 from reclass.core import Core
@@ -76,7 +76,7 @@ def cli():
             apps = data['applications']
             if options.applications_postfix:
                 postfix = options.applications_postfix
-                groups.update([(k + postfix, v) for k,v in apps.items()])
+                groups.update([(k + postfix, v) for k,v in six.iteritems(apps)])
             else:
                 groups.update(apps)
 

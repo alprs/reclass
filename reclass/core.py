@@ -10,6 +10,7 @@
 import time
 #import types
 import re
+import six
 #import sys
 import fnmatch
 import shlex
@@ -143,7 +144,7 @@ class Core(object):
         nodes = {}
         applications = {}
         classes = {}
-        for f, nodeinfo in entities.items():
+        for f, nodeinfo in six.iteritems(entities):
             d = nodes[f] = self._nodeinfo_as_dict(f, nodeinfo)
             for a in d['applications']:
                 if a in applications:

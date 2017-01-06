@@ -135,7 +135,7 @@ class Parameters(object):
             ret.update(new)
             return ret
 
-        for key, newvalue in new.items():
+        for key, newvalue in six.iteritems(new):
             ret[key] = self._merge_recurse(ret.get(key), newvalue,
                                            path.new_subpath(key))
         return ret
@@ -173,7 +173,11 @@ class Parameters(object):
         return len(self._occurrences) > 0
 
     def interpolate(self):
-        for path, refvalue in self._occurrences.copy().items():
+        while self.has_unresolved_refs():
+            # we could use a view here, but this is simple enough:
+            # _interpolate_inner removes references from the refs hash after
+            # processing them, so we cannot just iterate the dict
+            path, refvalue = six.iteritems(self._occurrences).next()
             self._interpolate_inner(path, refvalue)
 
     def _interpolate_inner(self, path, refvalue):

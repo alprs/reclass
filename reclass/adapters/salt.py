@@ -8,7 +8,7 @@
 #
 
 from __future__ import print_function
-import os, sys, posix
+import os, six, sys, posix
 
 from reclass import get_storage, output
 from reclass.core import Core
@@ -69,7 +69,7 @@ def top(minion_id, storage_type=OPT_STORAGE_TYPE,
     else:
         data = reclass.inventory()
         nodes = {}
-        for node_id, node_data in data['nodes'].items():
+        for node_id, node_data in six.iteritems(data['nodes']):
             env = node_data['environment']
             if env not in nodes:
                 nodes[env] = {}
